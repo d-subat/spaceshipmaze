@@ -2,18 +2,24 @@
   "name": "cavegame",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://d-subat.github.io/spaceshipmaze",
   "dependencies": {
+    "gh-pages": "^1.2.0",
+    "random-dungeon-generator": "latest",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
-    "random-dungeon-generator": "latest",
     "three": "latest",
-    "three-pointerlock": "latest"
+    "three-gltf-loader": "^1.95.0",
+    "three-pointerlock": "latest",
+    "three-effectcomposer": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pre-deploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }

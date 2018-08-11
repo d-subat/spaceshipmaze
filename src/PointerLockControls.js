@@ -71,10 +71,11 @@
                      break;
 
                  case 32: // space
-                     if (canJump === true) velocity.y += 350;
+                     if (canJump === true) velocity.y += 150;
                      canJump = false;
                      break;
-
+                default:
+                     break;
              }
 
          };
@@ -102,6 +103,8 @@
                  case 68: // d
                      moveRight = false;
                      break;
+                default:
+                break;
 
              }
 
@@ -153,37 +156,7 @@
              var delta = (time - prevTime) / 1000;
 
 
-    /*
-    raycaster.ray.origin.copy(controls.getObject().position);
-    raycaster.ray.origin.y -= 10;
-    var intersections = raycaster.intersectObjects(objects);
-    var onObject = intersections.length > 0;
-
-    velocity.x -= velocity.x * 10.0 * delta;
-    velocity.z -= velocity.z * 10.0 * delta;
-    velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
-    direction.z = Number(moveForward) - Number(moveBackward);
-    direction.x = Number(moveLeft) - Number(moveRight);
-
-    direction.normalize(); // this ensures consistent movements in all directions
-    if (moveForward || moveBackward) velocity.z -= direction.z * 400.0 * delta;
-    if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta;
-    if (onObject === true) {
-      velocity.y = Math.max(0, velocity.y);
-      canJump = true;
-    }
-    controls.getObject().translateX(velocity.x * delta);
-    controls.getObject().translateY(velocity.y * delta);
-    controls.getObject().translateZ(velocity.z * delta);
-    if (controls.getObject().position.y < 10) {
-      velocity.y = 0;
-      controls.getObject().position.y = 10;
-      canJump = true;
-    }
-*/
-
-
-             velocity.x -= velocity.x * 10.0 * delta;
+            velocity.x -= velocity.x * 10.0 * delta;
              velocity.z -= velocity.z * 10.0 * delta;
 
              velocity.y -= 24.8 * 100.0 * delta; // 100.0 = mass
@@ -199,7 +172,7 @@
              // which only set y.
              if (isOnObject === true) {
 
-                 velocity.y = Math.max(0, velocity.y);
+                 velocity.y = 0;
                  velocity.x = 0;
                  velocity.z = 0;
 

@@ -2,9 +2,11 @@ module.exports = function ( controls ) {
     var element;
     var blocker;
     var instructions;
+    var header;
     
         blocker = document.getElementById('blocker');
         instructions = document.getElementById('instructions');
+        header = document.getElementById('header');
         var havePointerLock = 'pointerLockElement' in document ||
             'mozPointerLockElement' in document ||
             'webkitPointerLockElement' in document;
@@ -17,11 +19,14 @@ module.exports = function ( controls ) {
                     document.webkitPointerLockElement === element) {
                     controls.enabled = true;
                     blocker.style.display = 'none';
+                    header.style.display = 'flex';
+                    instructions.style.display = '';
                 }
                 else {
                     controls.enabled = false;
                     blocker.style.display = 'flex';
-                    instructions.style.display = '';
+                    header.style.display = 'none';
+                    instructions.style.display = 'block';
                 }
             };
             var pointerlockerror = function (event) {

@@ -1,31 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
 * {
   box-sizing: border-box;
 }
 
 body {
-
+  font-family:Orbitron;
+  margin:0;
+  overflow:hidden;
+  background: radial-gradient(at center,  white,black)
 }
-#root {
-  box-shadow: inset 0 0 20px 3px rgba(0, 102, 133, 0.7);
+.App {
+ 
 }
+#header {display:none;}
 .gameHUD {
+  box-shadow: inset 15px 15px 40px 5px rgba(255, 255, 255, 0.4);
+  background: rgba(13, 158, 255, 0.4);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 150px;
-  width: 100%;
+  border-radius:30px;
+  padding:5px;
+  flex-direction: column;
+  height: 80%;
+  width: 150px;
   margin:8px;
   color: white;
+  height:90%;
   position: fixed;
 }
 
 .gameMap {
-  box-shadow: inset 0 0 3px 1px rgba(13, 158, 255, 0.85);
-  background: rgba(0, 56, 94, 0.5);
-  border-radius: 50%;
-  border: 1px solid rgb(0, 82, 136);
-  width: 150px;
-  height: 150px;
+  box-shadow: inset 15px 15px 40px 5px rgba(255, 255, 255, 0.4);
+  background: rgba(13, 158, 255, 0.4);
+  border-radius:30px;
+ 
+  
+  width:100%;
+  padding:10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,24 +46,64 @@ body {
 }
 .gameMapOverlay {
   position:absolute;
-  border-radius: 50%;
-  background: rgba(0, 117, 196, 0.3);
+  border-radius:30px;
+  box-shadow: inset 15px 15px 40px 5px rgba(255, 255, 255, 0.4);
+  background: rgba(13, 158, 255, 0.4);
   
   width:100%;
   height:100%;
 }
 
+.logo {
+  color:#0191f1;
+  font-weight: bold;
+  font-size:3em;
+  letter-spacing: 5px;
+  font-variant: small-caps;
+  text-shadow: 1px -1px 0 white,
+  0 10px 0 transparent,0 -10px  0 transparent
+  ,0 12px  30px #0272bd,0 -12px  30px #005c99;
+}
 .titleHUD {
-  font-size: 1.5em;
-  background: rgba(0,0,0,0.5);
-  padding: 3px 6px;
-  transform: skewX(-20deg);
-  margin-right: 25px;
+  font-size: 1em;
+  box-shadow: inset 15px 15px 40px 5px rgba(255, 255, 255, 0.4);
+  background: rgba(13, 158, 255, 0.4);
+
+  padding:5px;
+  
+  height:100%;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius:30px;
+  margin-top:10px;
+}
+.inventory { border-radius:5px 5px 30px 30px; 
+display:grid;
+grid-template-columns: 1fr 1fr;
+grid-auto-columns: 1em;
+grid-auto-rows: min-content; 
+grid-gap: 5px;
+justify-content: center;
+align-items: center;
+overflow:hidden;
+}
+.inventory > h5{ grid-column: 1/3;margin:0;}
+.inventory >div {color:pink;
+background: rgba(0,0,0,0.5);
+padding: 2px;
+text-align: center; 
 }
 
-.playerEnergy, .playerName {
-  color: rgb(0, 153, 255);
+ .playerName {
+  text-align:center;  
+  padding:10px;
+  font-weight:bold;
+  color:white;
 }
+.playerHead svg {width:50px;height:50px;fill:white;}
+
 #blocker {
   width: 100%;
   min-height: 100vh;
@@ -61,7 +113,7 @@ body {
   justify-content: center;
   flex-direction: column;
   position: absolute;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.2);
   color:white;
 }
 #instructions {
@@ -79,8 +131,8 @@ color:black;
   display: flex;
   align-items: center;
   justify-content: center;
+  width:100%;
   
-  width: 100%;
   bottom:0;
   position: absolute;
 }
@@ -147,3 +199,4 @@ color:black;
     opacity: 0;
   }
 }
+#canvas{display:none}
